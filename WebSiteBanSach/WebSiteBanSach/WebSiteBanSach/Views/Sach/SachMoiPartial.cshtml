@@ -1,0 +1,29 @@
+﻿
+@using WebSiteBanSach.Models;
+@*định nghĩa kiểu dữ liệu cho biến model*@
+@model List<Sach>
+
+<h1 class="item-header">Sách mới</h1>
+@{
+    foreach (var item in Model)
+    {
+    <div class="activity-list-update">
+        <img src="~/HinhAnhSp/@Url.Content(item.AnhBia)" width="50" height="50" alt="Image">
+        @*<p><strong>Tiêu đề @item.TenSach</strong><br /><a href="#">Xem chi tiết</a></p>
+        <div class="clear"></div>*@
+        @if (item.TenSach.Length > 30)
+        {
+            <p><strong titile="@item.TenSach">Tiêu đề : </strong>@item.TenSach.Substring(0, 30)...<br /><a href="@Url.Action("XemChiTiet", "Sach", new { @_MaSach=item.MaSach})">Xem chi tiết</a></p>
+        }
+        else
+        {
+            <p><strong titile="@item.TenSach">Tiêu đề : </strong>@item.TenSach<br /><a href="@Url.Action("XemChiTiet", "Sach", new { @maSach=item.MaSach})">Xem chi tiết</a></p>
+            <div class="clear"></div>
+        }
+    </div>
+    }
+}
+
+<a href="#" class="item-footer green">
+    Sách loại mới nhất
+</a>

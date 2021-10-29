@@ -1,0 +1,13 @@
+﻿
+@using WebSiteBanSach.Models;
+@model Sach
+<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "XemChiTiet";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+@*thông tin sách chi tiết*@
+<div><img src="@Url.Content("~/HinhAnhSP/"+Model.AnhBia)" width="200" height="250" /></div>
+<div>Mã sách: @Model.MaSach</div>
+<div>Tên sách: @Model.TenSach</div>
+<div>Thông tin: @Model.MoTa</div>

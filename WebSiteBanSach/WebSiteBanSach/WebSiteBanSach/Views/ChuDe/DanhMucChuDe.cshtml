@@ -1,0 +1,17 @@
+﻿
+@using WebSiteBanSach.Models;
+@model List<ChuDe>
+
+@{
+    ViewBag.Title = "DanhMucChuDe";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+@*hiển thị danh mục chủ đề *@
+@foreach (var item in Model)
+{
+    <a style="width :400px;text-align:center;" href="@Url.Action("SachTheoChuDe", "ChuDe", new { @MaChuDe=item.MaChuDe})" class="button button-submit">@item.TenChuDe</a>
+    <br/>
+    <br/>
+}
+
+

@@ -1,0 +1,54 @@
+﻿
+@using WebSiteBanSach.Models;
+@model List<Sach>
+<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "SachTheoChuDe";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+@if (Model.Count == 0)
+{
+    <div id="divBody">
+        <h1>@ViewBag.Sach</h1>
+    </div>
+}
+else
+{
+    <div id="divBody">
+        @*Hiển thị dsach sách theo chủ đề*@
+        @{int i = 0; }
+        @foreach (var item in Model)
+        {
+            i++;
+            <div id="SanPham">
+                @*<div id="AnhBia"><img scr="@Url.Content("~/HinhAnhSP/"+item.AnhBia)" width="100" height="150" /></div>*@
+                <div class="AnhBia">
+                    <a href="/Book/Details/10">
+                        <img src="~/HinhAnhSp/@Url.Content(item.AnhBia)" alt="slideImage3" width="100" height="150" />
+                    </a>
+                </div>
+                <div id="ThongTin">
+                    @if (item.TenSach.Length < 35)
+                    {
+                        <div id="TenSach" title="@item.TenSach">@item.TenSach. </div>
+                    }
+                    else
+                    {
+                        <div id="TenSach" title="@item.TenSach">@item.TenSach.Substring(0, 35) ...</div>
+                    }
+
+                    <div id="DonGia" style="color:orange"><font color="Green">Gid:</font>@String.Format("{0:0,0}", @item.GiaBan) vnđ</div>
+                </div>
+            </div>
+            @*1 hàng load 3spham*@
+            if (i % 3 == 0)
+            {
+                <div style="clear:both"></div>
+            }
+        }
+    </div>
+    <div style="clear:both"></div>
+}
+
+

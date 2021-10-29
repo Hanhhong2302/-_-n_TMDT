@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @*Chèn link css của template download*@
+    <link href="~/Content/NguoiDungCssLayout/fonts.css" rel="stylesheet" />
+    <link href="~/Content/NguoiDungCssLayout/screen.css" rel="stylesheet" />
+    @*Chèn css thiết kế*@
+    <link href="~/Content/NguoiDungCssLayout/NguoiDungCssLayout.css" rel="stylesheet" />
+    @*Chèn css font ký tự*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    @*chèn link css, javascript nivoSlider*@
+    <link href="~/NivoSlider/nivo-slider.css" rel="stylesheet" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+    <script src="~/NivoSlider/jquery.nivo.slider.js"></script>
+    <script src="~/NivoSlider/jquery.nivo.slider.pack.js"></script>
+</head>
+
+<body>
+
+
+    <div id="ToanTrang">
+        <section class="blank">
+            <div class="flash">
+                <div class="icDienThoai">
+                    <i class="fas fa-phone-alt"></i>
+                    (08) 1900-1560
+                </div>
+                @*tạo div đăng kí đăng nhập*@
+                <div class="DangKyDangNhap">
+                    <i class="fas fa-sign-in-alt"></i>
+                    @Html.ActionLink("Đăng ký", "DangKy", null, htmlAttributes: new { @class = "DangKy" })
+                    <i class="fas fa-unlock"></i>
+                    @Html.ActionLink("Đăng nhập", "DangNhap", null, htmlAttributes: new { @class = "DangNhap" })
+                </div>
+            </div>
+
+            @*xây dựng div menu header*@
+            <div class="flash success" id="divDanhMuc">
+                @*Hộp thoại tìm kiếm*@
+                <div id="txtTimKiem">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "textBoxTimKiem", @placeholder = "Nhập từ khóa cần tìm" })
+                        @*chèn vào image button hình ảnh*@
+                        <div id="divHinhAnhTimKiem">
+                            <button type="submit"><img src="~/HinhAnh/imgSearch.png" /></button>
+                        </div>
+                    }
+
+                </div>
+                @*Menu bên phải header*@
+                <ul class="navMenu">
+                    <li>
+                        <a href="#">Trang chủ</a>
+                    </li>
+                    <li>
+                        <a href="#">Giới thiệu</a>
+                    </li>
+                    <li>
+                        <a href="#">Liên hệ</a>
+                    </li>
+                    <li>
+                        <a href="#">Hướng dẫn</a>
+                    </li>
+                    <li>
+                        <a href="#">Sách</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            @*Div menu bên trái*@
+            <div id="divMenuLeft">
+                @*Chèn vào partial view sách mới*@
+                <div class="activity">
+                    @Html.Action("SachMoiPartial","Sach")
+                    
+                </div>
+            </div>
+            @*Chèn div nivo slider*@
+            <div id="slider" class="nivoSlider">
+                <img src="~/HinhAnh/Anh1.jpg" />
+                <img src="~/HinhAnh/Anh2.jpg" />
+                <img src="~/HinhAnh/Anh3.jpg" />
+            </div>
+            <div style="clear:both"></div>
+
+        </section>
+        @*Div body*@
+        <div id="NoiDung">
+            @RenderBody()
+        </div>
+        <section>
+            @*phần chủ đề*@
+            <div>
+                @Html.Action("ChuDePartial","ChuDe")
+            </div>
+        </section>
+
+        @*Div nhà xuất bản*@
+        <section class="blank items">
+            <div id="divLeft">
+                <div class="item">
+                    <div class="item-info">
+                        @*Action PartialView*@
+                        @Html.Action("NhaXuatBanPartial","NhaXuatBan")
+                        
+                    </div>
+                    <img src="http://lorempixel.com/400/300/" alt="Image">
+                </div>
+            </div>
+            <div id="divRight">
+                @RenderSection("NoiDungBenPhai", false)
+            </div>
+            <div style="clear:both"></div>
+            <div>
+                <a href="#" class="button button-buy">Chào mừng các bạn đã đến với trang web</a>
+            </div>
+
+
+        </section>
+        <div style="clear:both"></div>
+
+    </div>
+    @*Script chạy nivo slider*@
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                controlNav: false, //1,2,3...navigation
+                prevText: '',
+                nextText: '',
+            });
+        });
+    </script>
+</body>
+</html>
