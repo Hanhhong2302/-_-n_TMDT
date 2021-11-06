@@ -10,7 +10,7 @@ namespace WebSiteBanSach.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        QuanLyBanSachEntities db = new QuanLyBanSachEntities();
+        QuanLyBanSachEntities1 db = new QuanLyBanSachEntities1();
         public ActionResult Index()
         {
             return View(db.Saches.Where(n=>n.Moi==1).ToList());

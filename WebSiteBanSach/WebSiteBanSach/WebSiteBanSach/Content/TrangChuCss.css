@@ -1,54 +1,36 @@
 ﻿
 div#SanPham {
     float: left;
-    width: 250px;
-    margin-left: 10%;
-    margin-top: 10px;
+    width: 200px;
+    margin-left: 100px;
+}
+/*css trang xem chi tiết*/
+#divBody {
+    margin-left: 130px;
 }
 
-#divBody {
-    margin: auto;
-}
 #divNoiDungBenPhai {
     display: none;
 }
 
-#divMenuSlider {
+/* #divMenuSlider {
     display: none;
+}*/
+
+#divGioHang {
+    border: 3px; /*solid #EEEEEE;*/
+    border-color: black;
+    margin-left: 10%;
 }
 
-#HinhAnh {
-    float: left;
-}
-/*div hình ảnh của sản phẩm*/
-div#SanPham img {
-    width: 150px;
-    height: 200px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
+    #divGioHang td {
+        text-align: right;
+        color: red;
+        font-weight: bold;
+    }
 
-#ThongTin {
-    float: left;
-    width: 600px;
-    margin-left: 10px;
+.MenuTrang li {
+    display: inline;
 }
-/*div tên sách*/
-#TenSach {
-    font-weight: normal;
-    font-size: 15pt;
-    height: auto;
-    word-wrap: break-word;
-    color: red;
-}
-
-#DonGia {
-    font-weight: normal;
-    color: red;
-    font-size: 10pt;
-    height: auto;
-}
-
-
 
 

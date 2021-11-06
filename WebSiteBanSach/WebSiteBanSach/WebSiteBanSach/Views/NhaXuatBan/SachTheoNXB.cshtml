@@ -15,11 +15,9 @@
         i++;
         <div id="SanPham">
             @*<div id="AnhBia"><img scr="@Url.Content("~/HinhAnhSP/"+item.AnhBia)" width="100" height="150" /></div>*@
-            <div class="AnhBia">
-                <a href="/Book/Details/10">
-                    <img src="~/HinhAnhSp/@Url.Content(item.AnhBia)" alt="slideImage3" width="100" height="150" />
-                </a>
-            </div>
+            <a href="@Url.Action("XemChiTiet", "Sach", new { @MaSach = item.MaSach })">
+                <div id="AnhBia"><img src="@Url.Content("~/HinhAnhSP/"+item.AnhBia)" width="200" height="250"></div>
+            </a>
             <div id="ThongTin">
                 @if (item.TenSach.Length < 35)
                 {
@@ -30,7 +28,13 @@
                     <div id="TenSach" title="@item.TenSach">@item.TenSach.Substring(0, 35) ...</div>
                 }
 
-                <div id="DonGia" style="color:orange"><font color="Green">Gid:</font>@String.Format("{0:0,0}", @item.GiaBan) vnđ</div>
+                <div id="DonGia" style="color:orange"><font color="Green">Giá:</font>@String.Format("{0:0,0}", @item.GiaBan) vnđ</div>
+            </div>
+            <div id="GioHang">
+                @using (Html.BeginForm("ThemGioHang", "GioHang", new { @MaSach = item.MaSach, @strURL = Request.Url.ToString() }))
+                {
+                    <input type="submit" style="cursor:pointer" value="Mua ngay &#xf07a;" id="btnGioHang" class="btn btn-primary">
+                }
             </div>
         </div>
         @*1 hàng load 3spham*@
@@ -41,6 +45,20 @@
     }
 </div>
 <div style="clear:both"></div>
-}
+@*css giỏ hàng*@
+<style>
+    #btnGioHang {
+        font-family: 'FontAwesome','Segoe UI';
+        font-size: 10pt;
+        font-weight: normal;
+        background-color: red;
+        color: white;
+        border: none;
+    }
+
+        #btnGioHang:hover {
+            background-color: #a30a11;
+        }
+</style>
 
 

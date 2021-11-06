@@ -6,11 +6,11 @@
 <hr/>
 @foreach (var item in Model)
 {
-    <a style="width :400px;text-align:center;" href="@Url.Action("SachTheoChuDe", new { @MaChuDe=item.MaChuDe})"  class="button button-submit">@item.TenChuDe</a>
+    <a style="width :400px;text-align:center;" href="@Url.Action("SachTheoChuDe","ChuDe", new { @MaChuDe=item.MaChuDe})"  class="button button-submit">@item.TenChuDe</a>
 }
 <br />
 <br />
-<a style="width:100%;text-align:center;" href="@Url.Action("DanhMucChuDe")"  class="button button-submit">Chủ đề khác...</a>
+<a style="width:100%;text-align:center;" href="@Url.Action("DanhMucChuDe","ChuDe")"  class="button button-submit">Chủ đề khác...</a>
 <br/>
 <div style="clear:both"></div>
 

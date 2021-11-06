@@ -10,7 +10,7 @@ namespace WebSiteBanSach.Controllers
     public class NhaXuatBanController : Controller
     {
         // GET: NhaXuatBan
-        QuanLyBanSachEntities db = new QuanLyBanSachEntities();
+        QuanLyBanSachEntities1 db = new QuanLyBanSachEntities1();
         public PartialViewResult NhaXuatBanPartial()
         {
             return PartialView(db.NhaXuatBans.Take(10).OrderBy(n => n.TenNXB).ToList());
