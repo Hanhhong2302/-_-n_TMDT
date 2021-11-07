@@ -15,6 +15,5 @@ namespace WebSiteBanSach.Controllers
         {
             return View(db.Saches.Where(n=>n.Moi==1).ToList());
         }
-        
     }
 }

@@ -20,7 +20,6 @@
 
 <body>
 
-
     <div id="ToanTrang">
         <section class="blank">
             <div class="flash">
@@ -31,9 +30,9 @@
                 @*tạo div đăng kí đăng nhập*@
                 <div class="DangKyDangNhap">
                     <i class="fas fa-sign-in-alt"></i>
-                    @Html.ActionLink("Đăng ký", "DangKy", null, htmlAttributes: new { @class = "DangKy" })
+                    @Html.ActionLink("Đăng ký", "DangKy","NguoiDung" )
                     <i class="fas fa-unlock"></i>
-                    @Html.ActionLink("Đăng nhập", "DangNhap", null, htmlAttributes: new { @class = "DangNhap" })
+                    @Html.ActionLink("Đăng nhập", "DangNhap", "NguoiDung")
                 </div>
             </div>
 
@@ -54,7 +53,7 @@
                 @*Menu bên phải header*@
                 <ul class="navMenu">
                     <li>
-                        <a href="#">Trang chủ</a>
+                        @Html.ActionLink("Trang Chủ", "Index", "Home")
                     </li>
                     <li>
                         <a href="#">Giới thiệu</a>
@@ -66,7 +65,7 @@
                         <a href="#">Hướng dẫn</a>
                     </li>
                     <li>
-                        <a href="#">Sách</a>
+                        @Html.ActionLink("Sách", "SachMoiPartial", "Sach")
                     </li>
                 </ul>
             </div>
