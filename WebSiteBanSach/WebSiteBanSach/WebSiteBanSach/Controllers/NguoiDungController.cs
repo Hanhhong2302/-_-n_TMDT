@@ -9,13 +9,13 @@ namespace WebSiteBanSach.Controllers
 {
     public class NguoiDungController : Controller
     {
-        QuanLyBanSachEntities1 db = new QuanLyBanSachEntities1();
+        QuanLyBanSachEntities db = new QuanLyBanSachEntities();
         // GET: NguoiDung
         public ActionResult Index()
         {
             return View();
         }
-        [HttpGet] 
+        [HttpGet]
         public ActionResult DangKy()
         {
             return View();
@@ -27,32 +27,35 @@ namespace WebSiteBanSach.Controllers
         {
             if (ModelState.IsValid)
             {
-                //chèn dl vào bảng khách hàng
+                //Insert Data into KhachHang Table
                 db.KhachHangs.Add(kh);
-                //lưu vào csdl
+                //Save to Database
                 db.SaveChanges();
 
             }
-                return View();
-        }
-        
-        [HttpGet]
-
-        public ActionResult DangNhap(FormCollection f)
-        {
-            string sTaiKhoan = f.Get("txtTaiKhoan").ToString();
-            string sMatKhau = f.Get("txtMatKhau").ToString();
-            KhachHang kh = db.KhachHangs.SingleOrDefault(n => n.TaiKhoan == sTaiKhoan && n.MatKhau == sMatKhau);
-            if (kh != null)
-            {
-                ViewBag.ThongBao = "Đăng Nhập Thành Công";
-                Session["TaiKhoan"] = kh;
-                return View();
-            }
-            ViewBag.ThongBao = "Đăng Nhập Thất Bại";
             return View();
-           
-
         }
+        [HttpGet]
+        public ActionResult DangNhap()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult DangNhap(FormCollection fc)
+        {
+            string textTaiKhoan = fc["txtTaiKhoan"].ToString();
+            string textMatKhau = fc["txtMatKhau"].ToString();
+            KhachHang _KhachHang = db.KhachHangs.SingleOrDefault(n => n.TaiKhoan == textTaiKhoan && n.MatKhau == textMatKhau);
+            if (_KhachHang != null)
+            {
+                Session["TaiKhoan"] = _KhachHang;
+                ViewBag.ThongBao = "Đăng nhập thành công";
+                return RedirectToAction("Index", "Home");
+            }
+            ViewBag.ThongBao = "Sai Tài khoản hoặc Mật khẩu";
+            return View();
+        }
+
     }
 }
