@@ -10,7 +10,7 @@ namespace WebSiteBanSach.Controllers
     public class ChuDeController : Controller
     {
         // GET: ChuDe
-        QuanLyBanSachEntities1 db = new QuanLyBanSachEntities1();
+        QuanLyBanSachEntities db = new QuanLyBanSachEntities();
         public ActionResult ChuDePartial()
         {
             return PartialView(db.ChuDes.Take(3).ToList());

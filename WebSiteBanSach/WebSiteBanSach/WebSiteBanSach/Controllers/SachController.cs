@@ -10,7 +10,8 @@ namespace WebSiteBanSach.Controllers
     public class SachController : Controller
     {
         // GET: Sach
-        QuanLyBanSachEntities1 db = new QuanLyBanSachEntities1();
+        QuanLyBanSachEntities db = new QuanLyBanSachEntities();
+        
         public PartialViewResult SachMoiPartial()
         {
             var lstSachMoi = db.Saches.Take(3).ToList();

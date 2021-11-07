@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Hung\Downloads\Đồ_Án_TMDT\Đồ_Án_TMDT\WebSiteBanSach\WebSiteBanSach\WebSiteBanSach\Models\QuanLyBanSach.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Tài liệu\TMDT\BOOKSTORE\WebSiteBanSach\WebSiteBanSach\WebSiteBanSach\Models\QuanLyBanSach.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

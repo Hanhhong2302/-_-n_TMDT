@@ -72,24 +72,7 @@
             </div>
         </section>
 
-        <section>
-            @*Div menu bên trái*@
-            <div id="divMenuLeft">
-                @*Chèn vào partial view sách mới*@
-                <div class="activity">
-                    @Html.Action("SachMoiPartial","Sach")
-                    
-                </div>
-            </div>
-            @*Chèn div nivo slider*@
-            <div id="slider" class="nivoSlider">
-                <img src="~/HinhAnh/Anh1.jpg" />
-                <img src="~/HinhAnh/Anh2.jpg" />
-                <img src="~/HinhAnh/Anh3.jpg" />
-            </div>
-            <div style="clear:both"></div>
-
-        </section>
+        
         @*Div body*@
         <div id="NoiDung">
             @RenderBody()
