@@ -195,7 +195,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="QuanLyBanSachEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="QuanLyBanSachEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ChiTietDonHangs" EntityType="Self.ChiTietDonHang" />
     <EntitySet Name="ChuDes" EntityType="Self.ChuDe" />
     <EntitySet Name="DonHangs" EntityType="Self.DonHang" />

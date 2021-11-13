@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     @*chèn link css, javascript nivoSlider*@
     <link href="~/NivoSlider/nivo-slider.css" rel="stylesheet" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
     <script src="~/NivoSlider/jquery.nivo.slider.js"></script>
     <script src="~/NivoSlider/jquery.nivo.slider.pack.js"></script>
 </head>
@@ -31,9 +32,9 @@
                 @*tạo div đăng kí đăng nhập*@
                 <div class="DangKyDangNhap">
                     <i class="fas fa-sign-in-alt"></i>
-                    @Html.ActionLink("Đăng ký", "DangKy", null, htmlAttributes: new { @class = "DangKy" })
+                    @Html.ActionLink("Đăng ký", "DangKy", "NguoiDung")
                     <i class="fas fa-unlock"></i>
-                    @Html.ActionLink("Đăng nhập", "DangNhap", null, htmlAttributes: new { @class = "DangNhap" })
+                    @Html.ActionLink("Đăng nhập", "DangNhap", "NguoiDung")
                 </div>
             </div>
 
@@ -41,7 +42,7 @@
             <div class="flash success" id="divDanhMuc">
                 @*Hộp thoại tìm kiếm*@
                 <div id="txtTimKiem">
-                    @using (Html.BeginForm())
+                    @using (Html.BeginForm("KetQuaTimKiem","TimKiem",FormMethod.Post))
                     {
                         @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "textBoxTimKiem", @placeholder = "Nhập từ khóa cần tìm" })
                         @*chèn vào image button hình ảnh*@
@@ -54,7 +55,7 @@
                 @*Menu bên phải header*@
                 <ul class="navMenu">
                     <li>
-                        <a href="#">Trang chủ</a>
+                        @Html.ActionLink("Trang Chủ", "Index", "Home")
                     </li>
                     <li>
                         <a href="#">Giới thiệu</a>
@@ -66,7 +67,7 @@
                         <a href="#">Hướng dẫn</a>
                     </li>
                     <li>
-                        <a href="#">Sách</a>
+                        @Html.ActionLink("Sách", "SachMoiPartial", "Sach")
                     </li>
                 </ul>
             </div>
