@@ -1,0 +1,72 @@
+﻿
+@using WebSiteBanSach.Models;
+@model List<Sach>
+<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+
+
+@{ Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+                ViewBag.Title = "Index"; }
+@section NoiDungBenPhai{
+    <div>
+        Truyền thông Anh cho biết quyết định thay HLV được đưa ra trước trận chung kết Cup FA. Van Gaal sẽ rời Old Trafford bất chấp Man Utd có thắng Crystal Palace tại Wembley hay không. Cup FA là kỉ niệm đẹp cuối cùng Van Gaal, sau những tháng ngày sống trong chỉ trích từ CĐV, các huyền thoại Man Utd cho tới truyền thông.
+        Man Utd có ý định đưa Louis Van Gaal lên làm Giám đốc kỹ thuật, hỗ trợ cho Mourinho nhưng HLV người Hà Lan khước từ.
+        Trong hai năm dẫn dắt "Quỷ đỏ", Van Gaal chi 362 triệu đôla mua cầu thủ nhưng thành tích không như mong đợi. Man Utd mùa này bị loại sớm ở Cup châu Âu, không có mặt trong Top 4. Lối chơi đơn điệu cũng khiến Van Gaal nhận nhiều chỉ trích, đặc biệt là từ các cựu cầu thủ Man Utd như Paul Scholes.
+    </div>
+}
+@*divBody trang index*@
+<div id="divBody" style="background:white;">
+    @*Mỗi lần load 1 div thì gtri i sẽ tăng*@
+    @{int i = 0; }
+    @foreach (var item in Model)
+    {
+        i++;
+    <div id="SanPham">
+        @*<div id="AnhBia"><img scr="@Url.Content("~/HinhAnhSP/"+item.AnhBia)" width="100" height="150" /></div>*@
+        <div class="AnhBia">
+            @*<a href="/Book/Details/10">
+                <img src="~/HinhAnhSp/@Url.Content(item.AnhBia)" alt="slideImage3" width="100" height="150" />
+            </a>*@
+        </div>
+        <a href="@Url.Action("XemChiTiet", "Sach", new { @MaSach = item.MaSach })">
+            <div id="AnhBia"><img src="@Url.Content("~/HinhAnhSP/"+item.AnhBia)" width="200" height="250"></div>
+        </a>
+        <div id="ThongTin">
+            @if (item.TenSach.Length < 35)
+            {
+    <div id="TenSach" title="@item.TenSach">@item.TenSach. </div> }
+else
+{
+    <div id="TenSach" title="@item.TenSach">@item.TenSach.Substring(0, 35) ...</div>}
+            @* Dịch dấu chấm động giá sử dịng string.Format ("{0:0,0}, tham số)"*@
+           
+        </div>
+        <div id="DonGia" style="color:orange">
+            <font color="Green">Giá:</font>@String.Format("{0:0,0}", @item.GiaBan) vnđ
+        </div>
+        <div id="GioHang">
+            @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = item.MaSach, @strURL = Request.Url.ToString() }))
+            {
+    <input type="submit" style="cursor:pointer" value="Mua hàng" id="btnGioHang" class="btn btn-primary" />}
+        </div>
+    </div> @*1 hàng load 3spham*@ 
+    if (i % 3 == 0)
+                {
+
+<div style="clear:both"></div>}
+            }
+</div>
+@*css giỏ hàng*@
+<style>
+    #btnGioHang {
+        font-family: 'FontAwesome','Segoe UI';
+        font-size: 10pt;
+        font-weight: normal;
+        background-color: red;
+        color: white;
+        border: none;
+    }
+
+        #btnGioHang:hover {
+            background-color: #a30a11;
+        }
+</style>
