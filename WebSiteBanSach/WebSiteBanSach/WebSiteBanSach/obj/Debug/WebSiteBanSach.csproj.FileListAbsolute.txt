@@ -388,3 +388,7 @@ D:\Tài liệu\TMDT\Team\WebSiteBanSach\WebSiteBanSach\WebSiteBanSach\obj\Debug\
 D:\Tài liệu\TMDT\Team\WebSiteBanSach\WebSiteBanSach\WebSiteBanSach\obj\Debug\WebSiteBanSach.csproj.CopyComplete
 D:\Tài liệu\TMDT\Team\WebSiteBanSach\WebSiteBanSach\WebSiteBanSach\obj\Debug\WebSiteBanSach.dll
 D:\Tài liệu\TMDT\Team\WebSiteBanSach\WebSiteBanSach\WebSiteBanSach\obj\Debug\WebSiteBanSach.pdb
+C:\Users\Hung\Downloads\Đồ_Án_TMDT\Đồ_Án_TMDT\WebSiteBanSach\WebSiteBanSach\WebSiteBanSach\bin\PagedList.dll
+C:\Users\Hung\Downloads\Đồ_Án_TMDT\Đồ_Án_TMDT\WebSiteBanSach\WebSiteBanSach\WebSiteBanSach\bin\PagedList.Mvc.dll
+C:\Users\Hung\Downloads\Đồ_Án_TMDT\Đồ_Án_TMDT\WebSiteBanSach\WebSiteBanSach\WebSiteBanSach\bin\PagedList.xml
+C:\Users\Hung\Downloads\Đồ_Án_TMDT\Đồ_Án_TMDT\WebSiteBanSach\WebSiteBanSach\WebSiteBanSach\bin\PagedList.Mvc.xml

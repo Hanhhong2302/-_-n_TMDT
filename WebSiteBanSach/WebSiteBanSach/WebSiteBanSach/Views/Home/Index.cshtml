@@ -1,6 +1,8 @@
 ﻿
 @using WebSiteBanSach.Models;
-@model List<Sach>
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Sach>
+
 <link href="~/Content/TrangChuCss.css" rel="stylesheet" />
 @{
     Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
@@ -40,7 +42,7 @@
                 <div id="GioHang">
                     @using (Html.BeginForm("ThemGioHang", "GioHang", new { @MaSach = item.MaSach, @strURL = Request.Url.ToString() }))
                     {
-                        <input type="submit" style="cursor:pointer" value="Mua ngay &#xf07a;" id="btnGioHang" class="btn btn-primary">
+                        <input type="submit" style="cursor:pointer" value="Mua ngay" id="btnGioHang" class="btn btn-primary">
                     }
                 </div>
             </div>
@@ -55,6 +57,18 @@
     }
 </div>
 <div style="clear:both"></div>
+@*tạo link liến kết các trang*@
+trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount;
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+
+</div>
+@*css phân trang*@
+<style>
+    .MenuTrang li{
+        display: inline;
+    }
+</style>
 @*css giỏ hàng*@
 <style>
     #btnGioHang {

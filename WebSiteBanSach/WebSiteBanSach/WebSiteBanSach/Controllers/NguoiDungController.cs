@@ -9,7 +9,7 @@ namespace WebSiteBanSach.Controllers
 {
     public class NguoiDungController : Controller
     {
-        QuanLyBanSachEntities db = new QuanLyBanSachEntities();
+        QuanLyBanSachEntities1 db = new QuanLyBanSachEntities1();
         // GET: NguoiDung
         public ActionResult Index()
         {
