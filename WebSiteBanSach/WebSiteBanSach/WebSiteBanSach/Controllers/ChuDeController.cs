@@ -18,7 +18,7 @@ namespace WebSiteBanSach.Controllers
         
         public ViewResult SachTheoChuDe(int MaChuDe = 0)
         {
-            //ktra chu đề tồn tại hay không
+            
             ChuDe cd = db.ChuDes.SingleOrDefault(n => n.MaChuDe == MaChuDe);
             if (cd == null)
             {

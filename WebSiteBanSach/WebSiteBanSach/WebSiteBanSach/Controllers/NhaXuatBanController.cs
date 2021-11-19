@@ -18,7 +18,7 @@ namespace WebSiteBanSach.Controllers
         //hiển thị sách theo nhà xuất bản
         public ViewResult SachTheoNXB(int MaNXB=0)
         {
-            //ktra chu đề tồn tại hay không
+         
             NhaXuatBan nxb = db.NhaXuatBans.SingleOrDefault(n => n.MaNXB == MaNXB);
             if (nxb == null)
             {
