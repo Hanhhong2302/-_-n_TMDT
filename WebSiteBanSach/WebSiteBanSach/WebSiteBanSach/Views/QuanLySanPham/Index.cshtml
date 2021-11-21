@@ -76,15 +76,15 @@
                 @Html.DisplayFor(modelItem => item.NhaXuatBan.TenNXB)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MaChuDe)
+                @Html.DisplayFor(modelItem => item.ChuDe.TenChuDe)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Moi)
             </td>
             <td>
-                @Html.ActionLink("Chỉnh sửa", "ChinhSua", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Hiển thị", "HienThi", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Xóa", "Xoa", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Chỉnh sửa", "ChinhSua", new { @MaSach = item.MaSach }) |
+                @Html.ActionLink("Hiển thị", "HienThi", new { @MaSach = item.MaSach }) |
+                @Html.ActionLink("Xóa", "Xoa", new { @MaSach = item.MaSach })
             </td>
         </tr>
     }

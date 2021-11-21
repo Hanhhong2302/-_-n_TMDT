@@ -39,7 +39,7 @@ namespace WebSiteBanSach.Models.Metadata
             [Display(Name = "Ngày tạo")]
             //[Required(ErrorMessage = "{0} không được để trống")]
             [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
-            [DataType(DataType.Date)]
+            //[DataType(DataType.Date)]
             public Nullable <System.DateTime> NgayCapNhat { get; set; }
 
             [Display(Name = "Số lượng")]
