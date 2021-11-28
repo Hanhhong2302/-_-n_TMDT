@@ -1,0 +1,48 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+@model IPagedList<WebSiteBanSach.Models.Sach>
+
+@{
+    ViewBag.Title = "Tìm kiếm Sách";
+    Layout = "~/Views/LayOut/NguoiDungLayout.cshtml";
+}
+
+<div id="divBody">
+    <div id="TenSach">@ViewBag.ThongBao</div><br />
+    @{int i = 0;}
+    @foreach (var item in Model)
+    {
+        i++;
+        <div id="SanPham">
+            <a href="@Url.Action("XemChiTiet", "Sach", new { @_MaSach = item.MaSach })">
+                <div id="AnhBia"><img src="@Url.Content("~/HinhAnhSP/"+item.AnhBia)" width="300" height="450"></div>
+            </a>
+            <div id="Gia">
+                <span id="TieuDe">Tên sách: </span>
+                <span id="TenSach">@item.TenSach</span><br />
+                <span id="TieuDe">Đơn giá : </span>
+                <span id="Gia">@string.Format("{0:0,0}", @item.GiaBan) vnđ</span>
+            </div>
+            <div id="GioHang">
+                @using (Html.BeginForm("ThemGioHang", "GioHang", new { @__MaSach = item.MaSach, @strURL = Request.Url.ToString() }))
+                {
+                    <input type="submit" style="cursor:pointer" value="Mua ngay &#xf07a;" id="btnGioHang" class="btn btn-primary">
+                }
+            </div>
+        </div>
+        if (i == 3)
+        {
+            i = 0;
+            <div style="clear:both"></div>
+        }
+    }
+</div>
+<div style="clear:both"></div>
+<div id="divBody">
+    <br />
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+</div>
+<div id="divBody" class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("KetQuaTimKiem", "TimKiem", new { _TuKhoa = ViewBag.TuKhoa, _Page = page }))
+</div>

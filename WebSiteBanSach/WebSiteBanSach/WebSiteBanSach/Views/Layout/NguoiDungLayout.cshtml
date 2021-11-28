@@ -19,8 +19,6 @@
 </head>
 
 <body>
-
-
     <div id="ToanTrang">
         <section class="blank">
             <div class="flash">
@@ -41,7 +39,7 @@
             <div class="flash success" id="divDanhMuc">
                 @*Hộp thoại tìm kiếm*@
                 <div id="txtTimKiem">
-                    @using (Html.BeginForm())
+                    @using (Html.BeginForm("KetQuaTimKiem", "TimKiem", FormMethod.Post))
                     {
                         @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "textBoxTimKiem", @placeholder = "Nhập từ khóa cần tìm" })
                         @*chèn vào image button hình ảnh*@
