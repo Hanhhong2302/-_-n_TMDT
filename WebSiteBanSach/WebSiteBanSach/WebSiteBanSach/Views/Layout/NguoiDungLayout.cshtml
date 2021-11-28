@@ -52,19 +52,20 @@
                 @*Menu bên phải header*@
                 <ul class="navMenu">
                     <li>
-                        <a href="#">Trang chủ</a>
+                        @Html.ActionLink("Trang Chủ","Index","Home")
                     </li>
                     <li>
                         <a href="#">Giới thiệu</a>
                     </li>
                     <li>
-                        <a href="#">Liên hệ</a>
+                     
+                        @Html.ActionLink("Liên Hệ","Contact","Home")
                     </li>
                     <li>
                         <a href="#">Hướng dẫn</a>
                     </li>
                     <li>
-                        <a href="#">Sách</a>
+                        @Html.ActionLink("Sách","SachMoiPartial", "Sach")
                     </li>
                 </ul>
             </div>

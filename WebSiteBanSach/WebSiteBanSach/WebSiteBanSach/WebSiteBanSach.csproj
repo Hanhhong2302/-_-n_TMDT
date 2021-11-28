@@ -2230,6 +2230,7 @@
     <Content Include="Views\QuanLySanPham\HienThi.cshtml" />
     <Content Include="Views\QuanLySanPham\Xoa.cshtml" />
     <Content Include="Views\TimKiem\KetQuaTimKiem.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
