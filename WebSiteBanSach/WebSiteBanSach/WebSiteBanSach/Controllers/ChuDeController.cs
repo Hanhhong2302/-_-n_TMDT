@@ -13,13 +13,13 @@ namespace WebSiteBanSach.Controllers
         QuanLyBanSachEntities1 db = new QuanLyBanSachEntities1();
         public ActionResult ChuDePartial()
         {
-            return PartialView(db.ChuDes.Take(3).ToList());
+            return PartialView(db.ChuDe.Take(3).ToList());
         }
         
         public ViewResult SachTheoChuDe(int MaChuDe = 0)
         {
-            
-            ChuDe cd = db.ChuDes.SingleOrDefault(n => n.MaChuDe == MaChuDe);
+            //ktra chu đề tồn tại hay không
+            ChuDe cd = db.ChuDe.SingleOrDefault(n => n.MaChuDe == MaChuDe);
             if (cd == null)
             {
                 //trả về trang báo lỗi
@@ -27,7 +27,7 @@ namespace WebSiteBanSach.Controllers
                 return null;
             }
             //truy xuất danh sách các quyển sách theo chủ đề
-            List<Sach> lstSach = db.Saches.Where(n => n.MaChuDe == MaChuDe && n.SoLuongTon > 0).OrderBy(n => n.GiaBan).ToList();
+            List<Sach> lstSach = db.Sach.Where(n => n.MaChuDe == MaChuDe && n.SoLuongTon > 0).OrderBy(n => n.GiaBan).ToList();
             if (lstSach.Count == 0)
             {
                 ViewBag.Sach = "Không có Sách nào thuộc Chủ đề này!";
@@ -37,7 +37,7 @@ namespace WebSiteBanSach.Controllers
         //hiển thị các chủ đề
         public ViewResult DanhMucChuDe()
         {
-            return View(db.ChuDes.ToList());
+            return View(db.ChuDe.ToList());
         }
     }
 }

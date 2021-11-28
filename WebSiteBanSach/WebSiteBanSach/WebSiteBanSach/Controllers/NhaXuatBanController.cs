@@ -13,13 +13,13 @@ namespace WebSiteBanSach.Controllers
         QuanLyBanSachEntities1 db = new QuanLyBanSachEntities1();
         public PartialViewResult NhaXuatBanPartial()
         {
-            return PartialView(db.NhaXuatBans.Take(10).OrderBy(n => n.TenNXB).ToList());
+            return PartialView(db.NhaXuatBan.Take(10).OrderBy(n => n.TenNXB).ToList());
         }
         //hiển thị sách theo nhà xuất bản
         public ViewResult SachTheoNXB(int MaNXB=0)
         {
-         
-            NhaXuatBan nxb = db.NhaXuatBans.SingleOrDefault(n => n.MaNXB == MaNXB);
+            //ktra chu đề tồn tại hay không
+            NhaXuatBan nxb = db.NhaXuatBan.SingleOrDefault(n => n.MaNXB == MaNXB);
             if (nxb == null)
             {
                 //trả về trang báo lỗi
@@ -27,7 +27,7 @@ namespace WebSiteBanSach.Controllers
                 return null;
             }
             //truy xuất danh sách các quyển sách theo Nhà xuất bản
-            List<Sach> lstSach = db.Saches.Where(n => n.MaNXB == MaNXB && n.SoLuongTon > 0).OrderBy(n => n.GiaBan).ToList();
+            List<Sach> lstSach = db.Sach.Where(n => n.MaNXB == MaNXB && n.SoLuongTon > 0).OrderBy(n => n.GiaBan).ToList();
             if (lstSach.Count == 0)
             {
                 ViewBag.Sach = "Không có Sách nào thuộc Chủ đề này!";
@@ -37,7 +37,7 @@ namespace WebSiteBanSach.Controllers
         //hiển thị nhà xuất bản
         public ViewResult DanhMucNXB()
         {
-            return View(db.NhaXuatBans.ToList());
+            return View(db.NhaXuatBan.ToList());
         }
     }
 }
